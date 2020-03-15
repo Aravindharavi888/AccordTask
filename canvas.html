@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body	
+{
+	width:500px;
+	height:300px;
+	border:2px solid gray;
+}
+input
+{
+	width:120px;
+	height:30px;
+	margin-top:20px;
+	margin-left:1px;
+	font-weight:bold;
+}
+canvas
+{
+	width:500px;
+	height:300px;
+}
+</style>
+</head>
+<body>
+	<input type="button" value="Draw" onclick="draw(x,y,w,h)">
+	<input type="button" value="Shift Left" onclick="sL()">
+	<input type="button" value="Shift Right" onclick="sR()">
+	<input type="button" value="Delete" onclick="del()"> <br></br><br></br>
+	<canvas id="Rect"></canvas>
+<script>
+re = document.getElementById('Rect');
+d = re.getContext('2d');
+x = 100;
+y = 5;
+w = 100;
+h = 70;
+function draw(x,y,w,h) 
+{
+	d.clearRect(0,0, 500, 500);
+    d.fillStyle = 'brown';
+    d.fillRect(x, y, w, h);
+}
+function sL() 
+{
+	x=x-10;	
+	draw(x,y,w,h);
+}
+function sR() 
+{
+	x=x+10;
+	draw(x,y,w,h);
+}
+function del() 
+{   
+    d.clearRect(0,0, 500, 500);
+}
+</script>
+</body>
+</html>

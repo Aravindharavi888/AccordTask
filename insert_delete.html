@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title>css</title>
+<style>
+table, th, td
+{
+	border: 1px solid black;
+}
+th
+{
+	background-color:black;
+}
+#he1, #he2
+{
+	color:white;
+	width:150px;
+}
+#but2
+{
+	margin-left:50px;
+}
+</style>
+</head>
+<body>
+<input type="button" value="Add Row" id="but1" onclick="AddRow()">
+<table id="mytable">
+	<ol>
+	<tr id="sec1">
+		<th id="art1">
+			<h3 id="he1">Serial Number</h3>
+		</th>	
+		<th id="art2">
+			<h3 id="he2">Action</h3>
+		</th>
+	</tr>
+	<tr id="sec2">
+		<td id="art3">1
+		</td>
+		<td id="art4">
+			<input type="button" value="Delete" id="but2" onclick="deleteRow()">
+		</td>
+	</tr>
+	</ol>
+	<script>
+		var i=1;
+		function AddRow() {
+			i=i+1;
+			var table = document.getElementById("mytable");
+			var row = table.insertRow(-1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var rowid="row"+i;
+			row.setAttribute("id",rowid);
+			cell1.innerHTML=i;
+			cell2.innerHTML = "<input type='button' id='but2' value='Delete' onclick='deleteRow("+rowid+")'>";
+		}
+		function deleteRow(rid) 
+		{	
+			console.log(rid);
+			var row = document.getElementById(rid.id);
+			row.parentNode.removeChild(row);
+		}
+	
+</script>	
+</div>
+</body>
+</html>
